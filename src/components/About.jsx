@@ -1,8 +1,8 @@
 const About = () => {
     return (
         <div>
-            <h1>Profile app</h1>
-            <p>This is about section.</p>
+            <h1>Netflix</h1>
+            <p>Welcome to Netflix.</p>
         </div>
     )
 }

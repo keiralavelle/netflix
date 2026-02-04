@@ -13,7 +13,7 @@ const Filters = ({titles,title, name, handleChange, handleSearch, handleClick}) 
                 </select>
             </div>
             <div className="filter-search">
-                <label htmlFor="search">Search a name</label>
+                <label htmlFor="search">Search a title</label>
                 <input id="search" onChange={handleSearch} value={name}/>
             </div>
             <button onClick={handleClick}>Clear</button>
