@@ -1,28 +1,18 @@
 import styles from "../styles/Card.module.css";
 
-const Card = ({ name, title, image, mode }) => {
+const Card = ({ title, image, match, rating, onClick }) => {
   return (
-    <div
-      className={`${styles["profile-card"]} ${
-        mode === "edit" ? styles.edit : ""
-      }`}
-    >
-      <div className={styles.top}>
-        <img src={image} alt={name} />
+    <div className={styles.card} onClick={onClick}>
+      <div className={styles.imageWrapper}>
+        <img src={image} alt={title} />
       </div>
 
-      <div className={styles.bottom}>
-        {mode === "edit" ? (
-          <>
-            <input className={styles.input} defaultValue={name} />
-            <input className={styles.input} defaultValue={title} />
-          </>
-        ) : (
-          <>
-            <p>{name}</p>
-            <p>{title}</p>
-          </>
-        )}
+      <div className={styles.info}>
+        <h3>{title}</h3>
+        <div className={styles.meta}>
+          <span className={styles.match}>{match}% Match</span>
+          <span className={styles.rating}>{rating}</span>
+        </div>
       </div>
     </div>
   );

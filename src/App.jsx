@@ -1,101 +1,61 @@
-import Card from "./components/Card";
-import About from "./components/About";
-import Filters from "./components/Filters";
+import { useMemo, useState } from "react";
 import Navbar from "./components/Navbar";
-import Wrapper from "./components/Wrapper";
-import stranger from "./assets/strangerthings.png";
-import squid from "./assets/squidgames.png";
-import { useState } from "react";
-import "./App.css";
+import Card from "./components/Card";
+import Details from "./components/Details";
+import { titles } from "./data/titles";
 
-function App() {
-  const profiles = [
-    { id: 0, name: "Stranger Things", title: "Science Fiction", image: stranger },
-    { id: 1, name: "Squid Game", title: "Action", image: squid },
-  ];
-  const titles = [...new Set(profiles.map((profile) => profile.title))];
-  const [clicked, setClicked] = useState(false);
-  const handleClick = () => {
-    setClicked((prev) => !prev);
-    console.log(clicked);
-  };
-  const [title, setTitle] = useState("");
-  const [name, setName] = useState("");
-  const handleChangeTitle = (event) => {
-    setTitle(event.target.value);
-  };
-  const handleSearch = (event) => {
-    setName(event.target.value);
-  };
-  const handleClear = () => {
-    setTitle("");
-    setName("");
-  };
+const App = () => {
+  const [search, setSearch] = useState("");
+  const [genre, setGenre] = useState("All");
+  const [selected, setSelected] = useState(null);
 
-  const filteredProfiles = profiles.filter(
-    (profile) =>
-      (profile.title === title || !title) &&
-      profile.name.toLowerCase().includes(name.toLowerCase()),
-  );
+  const genres = useMemo(() => {
+    return Array.from(new Set(titles.map((t) => t.genre)));
+  }, []);
 
-  const [mode, setMode] = useState("view"); 
+  const filtered = useMemo(() => {
+    const q = search.toLowerCase().trim();
+    return titles.filter((t) => {
+      const matchesSearch = t.title.toLowerCase().includes(q);
+      const matchesGenre = genre === "All" ? true : t.genre === genre;
+      return matchesSearch && matchesGenre;
+    });
+  }, [search, genre]);
+
   return (
     <>
-      <Navbar />
-      <Wrapper id="about">
-        <About />
-        <button onClick={handleClick}>
-          {clicked ? "Clicked" : "Click me"}
-        </button>
-      </Wrapper>
-      <Wrapper id="profiles">
-        <Filters
-          titles={titles}
-          title={title}
-          name={name}
-          handleChange={handleChangeTitle}
-          handleSearch={handleSearch}
-          handleClick={handleClear}
-        />
+      <Navbar
+        search={search}
+        setSearch={setSearch}
+        genre={genre}
+        setGenre={setGenre}
+        genres={genres}
+      />
 
-        <div> 
-          <button onClick = {() => setMode(mode === "view" ? "edit" : "view")}>
-            Switch to {mode === "view" ? "Edit" : "View"}
-          </button>
+      <main style={{ padding: "1.5rem 3rem" }}>
+        <h2 style={{ color: "white" }}>Recommended</h2>
 
-          {filteredProfiles.length > 0 ? (
-  filteredProfiles.map((profile) => (
-    <Card
-      key={profile.id}
-      name={profile.name}
-      title={profile.title}
-      image={profile.image}
-      mode={mode}
-    />
-  ))
-) : (
-  <p>No profiles selected.</p>
-)}
-
+        <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+          {filtered.map((t) => (
+            <Card
+              key={t.id}
+              title={t.title}
+              image={t.image}
+              match={t.match}
+              rating={t.rating}
+              onClick={() => setSelected(t)}
+            />
+          ))}
         </div>
 
-        <div className="grid">
-          {filteredProfiles.length > 0 ? (
-            filteredProfiles.map((profile) => (
-              <Card
-                key={profile.id}
-                name={profile.name}
-                title={profile.title}
-                image={profile.image}
-              />
-            ))
-          ) : (
-            <p>No profiles selected.</p>
-          )}
-        </div>
-      </Wrapper>
+        {filtered.length === 0 && (
+          <p style={{ color: "#aaa" }}>No results found.</p>
+        )}
+      </main>
+
+      <Details selected={selected} onClose={() => setSelected(null)} />
     </>
   );
-}
+};
 
 export default App;
