@@ -1,3 +1,4 @@
+import "../styles/details.css";
 const Details = ({ selected, onClose }) => {
     if (!selected) return null;
   

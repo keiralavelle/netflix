@@ -1,3 +1,5 @@
+import squidgamesImg from "../assets/squidgames.png";
+import strangerthingsImg from "../assets/strangerthings.png";
 export const titles = [
     {
       id: 1,
@@ -7,7 +9,7 @@ export const titles = [
       match: 98,
       summary: "A deadly competition offers a life-changing prize.",
       cast: ["Lee Jung-jae", "Park Hae-soo"],
-      image: "/src/assets/squidgames.png",
+      image: squidgamesImg,
     },
     {
       id: 2,
@@ -17,6 +19,6 @@ export const titles = [
       match: 95,
       summary: "A small town uncovers a supernatural mystery.",
       cast: ["Millie Bobby Brown", "Finn Wolfhard"],
-      image: "/src/assets/strangerthings.png",
+      image: strangerthingsImg,
     },
   ];
