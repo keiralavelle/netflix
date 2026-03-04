@@ -46,3 +46,53 @@
   padding: 1px 6px;
   border-radius: 3px;
 }
+.removeBtn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid #333;
+  color: #fff;
+
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transition: 0.2s ease;
+}
+
+.card {
+  position: relative;
+}
+
+.card:hover .removeBtn {
+  opacity: 1;
+}
+.listBtn {
+  margin-top: 8px;
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: 6px;
+
+  background: transparent;
+  border: 1px solid #444;
+  color: #e5e5e5;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.listBtn:hover {
+  border-color: #e50914;
+  color: white;
+}
+
+.listBtn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
