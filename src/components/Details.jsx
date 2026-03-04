@@ -17,4 +17,4 @@ const Details = ({ selected, onClose }) => {
     );
   };
   
-  export default Details;
+  export default Details; 
