@@ -1,6 +1,6 @@
 import squidgamesImg from "../assets/squidgames.png";
 import strangerthingsImg from "../assets/strangerthings.png";
-import wednesdayImg from "../assets/wednesday.png";
+import wednesdayImg from "../assets/wed.png";
 import queensgambitImg from "../assets/queensgambit.png";
 import cobraKaiImg from "../assets/cobrakai.png";
 import sandmanImg from "../assets/sandman.png";
@@ -16,7 +16,6 @@ import witcherImg from "../assets/witcher.png";
 import bridgertonImg from "../assets/bridgerton.png";
 import moneyheistImg from "../assets/moneyheist.png";
 import ozarkImg from "../assets/ozark.png";
-import thewitcherImg from "../assets/witcher.png";
 import loveisblindImg from "../assets/loveisblind.png";
 
 export const titles = [
