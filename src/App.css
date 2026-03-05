@@ -47,3 +47,8 @@
 .read-the-docs {
   color: #b3b3b3;             
 }
+
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+}

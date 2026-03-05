@@ -144,10 +144,9 @@ body {
     justify-content: space-between;
   }
   .grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
   }
  
