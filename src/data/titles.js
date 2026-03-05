@@ -1,22 +1,22 @@
 import squidgamesImg from "../assets/squidgames.png";
 import strangerthingsImg from "../assets/strangerthings.png";
 import wednesdayImg from "../assets/wed.png";
-import queensgambitImg from "../assets/queensgambit.png";
-import cobraKaiImg from "../assets/cobrakai.png";
+import queensgambitImg from "../assets/queen.png";
+import cobraKaiImg from "../assets/cobra.png";
 import sandmanImg from "../assets/sandman.png";
 import beefImg from "../assets/beef.png";
 import arcaneImg from "../assets/arcane.png";
 import darkImg from "../assets/dark.png";
-import blackmirrorImg from "../assets/blackmirror.png";
+import blackmirrorImg from "../assets/mirror.png";
 import youImg from "../assets/you.png";
-import umbrellaAcademyImg from "../assets/umbrellaacademy.png";
+import umbrellaAcademyImg from "../assets/umbrella.png";
 import narcosImg from "../assets/narcos.png";
-import thecrownImg from "../assets/thecrown.png";
+import thecrownImg from "../assets/crown.png";
 import witcherImg from "../assets/witcher.png";
 import bridgertonImg from "../assets/bridgerton.png";
-import moneyheistImg from "../assets/moneyheist.png";
+import moneyheistImg from "../assets/money.png";
 import ozarkImg from "../assets/ozark.png";
-import loveisblindImg from "../assets/loveisblind.png";
+import loveisblindImg from "../assets/love.png";
 
 export const titles = [
     {
