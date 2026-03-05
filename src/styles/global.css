@@ -1,7 +1,9 @@
+@import "./variables.css";
+
 body {
   margin: 0;
-  background: #141414;
-  color: #ffffff;
+  background: var(--bg);
+  color: var(--text);
   font-family: Arial, Helvetica, sans-serif;
 }
   main {

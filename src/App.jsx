@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 import Details from "./components/Details";
@@ -6,6 +6,15 @@ import MyList from "./components/MyList";
 import { titles } from "./data/titles";
 
 const App = () => {
+  const [theme, setTheme] = useState("dark"); 
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () =>
+    setTheme((t) => (t === "dark" ? "light" : "dark"));
+
   const [page, setPage] = useState("home");
   const [search, setSearch] = useState("");
   const [genre, setGenre] = useState("All");
@@ -55,6 +64,8 @@ const App = () => {
           genres={genres}
           onGoMyList={() => setPage("mylist")}
           onGoHome={() => setPage("home")}
+          theme={theme}
+          onToggleTheme={toggleTheme}
         />
 
         <main className="page">
@@ -96,6 +107,8 @@ const App = () => {
         genres={genres}
         onGoMyList={() => setPage("mylist")}
         onGoHome={() => setPage("home")}
+        theme={theme}
+        onToggleTheme={toggleTheme}
       />
 
       <MyList

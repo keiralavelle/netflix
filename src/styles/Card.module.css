@@ -3,6 +3,7 @@
   cursor: pointer;
   transition: transform 0.3s ease;
 }
+.info { color: var(--text); }
 
 .card:hover {
   transform: scale(1.05);

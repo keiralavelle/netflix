@@ -5,13 +5,14 @@ const Navbar = ({
   setSearch,
   genre,
   setGenre,
-  genres,
+  genres = [],
   onGoMyList,
-  onGoHome
+  onGoHome,
+  theme,
+  onToggleTheme,
 }) => {
   return (
     <nav className="navbar">
-
       <div className="navbar-logo" onClick={onGoHome}>
         <h2>Netflix</h2>
       </div>
@@ -26,7 +27,6 @@ const Navbar = ({
       </div>
 
       <div className="navbar-actions">
-
         <select
           className="nav-select"
           value={genre}
@@ -43,8 +43,16 @@ const Navbar = ({
         <button className="nav-btn" onClick={onGoMyList}>
           My List
         </button>
-        <div className="profile">👤</div>
 
+        {onToggleTheme && (
+          <button className="nav-btn" onClick={onToggleTheme}>
+            {theme === "light" ? "Dark" : "Light"}
+          </button>
+        )}
+
+        <div className="profile" title="Profile">
+          👤
+        </div>
       </div>
     </nav>
   );
