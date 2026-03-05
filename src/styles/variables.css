@@ -23,3 +23,8 @@
   --accent: #e50914;
   --match: #1a7f37;
 }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}

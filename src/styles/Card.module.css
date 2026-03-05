@@ -1,9 +1,9 @@
 .card {
+  position: relative;
   width: 180px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-.info { color: var(--text); }
 
 .card:hover {
   transform: scale(1.05);
@@ -23,30 +23,34 @@
 
 .info {
   margin-top: 8px;
-  color: white;
+  color: var(--text);
 }
 
 .info h3 {
   font-size: 0.95rem;
   margin: 0 0 4px;
+  color: var(--text); 
 }
 
 .meta {
   display: flex;
   gap: 8px;
   font-size: 0.8rem;
+  align-items: center;
 }
 
 .match {
-  color: #46d369; 
+  color: #46d369;
   font-weight: bold;
 }
 
 .rating {
-  border: 1px solid #777;
+  border: 1px solid var(--border);
   padding: 1px 6px;
   border-radius: 3px;
+  color: var(--text);
 }
+
 .removeBtn {
   position: absolute;
   top: 8px;
@@ -67,13 +71,10 @@
   transition: 0.2s ease;
 }
 
-.card {
-  position: relative;
-}
-
 .card:hover .removeBtn {
   opacity: 1;
 }
+
 .listBtn {
   margin-top: 8px;
   width: 100%;
@@ -81,24 +82,19 @@
   border-radius: 6px;
 
   background: transparent;
-  border: 1px solid #444;
-  color: #e5e5e5;
+  border: 1px solid var(--border);
+  color: var(--text);
 
   cursor: pointer;
   transition: 0.2s ease;
 }
 
 .listBtn:hover {
-  border-color: #e50914;
-  color: white;
+  border-color: var(--accent);
+  color: var(--text);
 }
 
 .listBtn:disabled {
   opacity: 0.6;
   cursor: default;
-}
-.card img {
-  width: 100%;
-  height: auto;
-  border-radius: 6px;
 }
